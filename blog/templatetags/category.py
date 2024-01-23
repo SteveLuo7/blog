@@ -17,22 +17,22 @@ def get_sidebar_list():
 @register.simple_tag
 def get_new_post():
     #   最近更新
-    return Post.objects.order_by('-pub_date')[:8]
+    return Post.objects.order_by('-add_time')[:5]
 
 @register.simple_tag
 def get_hot_post():
     # 手动热门推荐
-    return Post.objects.filter(is_hot=True)[:8]
+    return Post.objects.filter(is_hot=True)[:5]
 
 @register.simple_tag
 def get_hot_pv_post():
     # 手动热门推荐
-    return Post.objects.order_by('-pv')[:8]
+    return Post.objects.order_by('-pv')[:5]
 
 @register.simple_tag
 def get_archives():
     # 文章归档
-    return Post.objects.dates('add_date', 'month', order='DESC')[:8]
+    return Post.objects.dates('add_date', 'month', order='DESC')[:5]
 
 
 

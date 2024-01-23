@@ -110,4 +110,3 @@ class Sidebar(models.Model):
             }
             return render_to_string('sidebar/hot_post.html', context=context)
 
-        return self.content
